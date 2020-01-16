@@ -59,7 +59,8 @@
     height: 3rem;
     width: 16vw;
     min-width: 8rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
     align-self: center;
     border: solid #86BC24 2px;
     background-color:#86BC24;
