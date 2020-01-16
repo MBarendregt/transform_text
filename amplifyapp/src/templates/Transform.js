@@ -79,6 +79,12 @@ class Transform extends React.Component {
                         <label>Insert string below</label>
                         <br></br>
                         <br></br>
+                        <span>See what happens when you fill in some text that contains Amazon, Oracle, Microsoft, Google or Deloitte.</span>
+                        <br></br>
+                        <br></br>
+                        <span>It should be Upper or Lower case agnostic.</span>
+                        <br></br>
+                        <br></br>
                         <span>Number of conversions: {this.state.count}</span>
                     </div>
                     <div className="form__moreinfo-textarea">
