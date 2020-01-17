@@ -31,14 +31,12 @@ class Transform extends React.Component {
             description: '',
             submitmessage: '',
             additionalmessage: '',
-            count: 0,
             data: ''
         };
 
         this.baseState = this.state
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.increment = this.increment.bind(this);
     }
 
     handleChange(event) {
@@ -48,10 +46,6 @@ class Transform extends React.Component {
 
     }
 
-    increment() {
-        this.setState({ count: this.state.count + 1 });
-    };
-
     handleSubmit(event) {
         event.preventDefault();
         let data = {
@@ -60,7 +54,6 @@ class Transform extends React.Component {
         postData('https://onuif9iroi.execute-api.eu-west-1.amazonaws.com/prod/transform', data)
             .then(data => {
                 this.setState(this.baseState)
-                this.setState({ count: this.state.count + 1 });
                 this.setState({ additionalmessage: 'Converted the following message:' })
                 this.setState({ submitmessage: convertUnicode(data.replace(/['"]+/g, '')) })
                 setTimeout(() => {
@@ -83,9 +76,6 @@ class Transform extends React.Component {
                         <br></br>
                         <br></br>
                         <span>It should be Upper or Lower case agnostic.</span>
-                        <br></br>
-                        <br></br>
-                        <span>Number of conversions: {this.state.count}</span>
                     </div>
                     <div className="form__moreinfo-textarea">
                         <textarea

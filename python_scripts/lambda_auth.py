@@ -46,21 +46,18 @@ def generatePolicy(effect, methodArn):
 def lambda_handler(event, context):
     """
     Check if the authorizationToken provided in the Header is the same as the one stored in secretsmanager
+    Also allow s3 origin. 
     """
-    print(event)
-    print(event["headers"])
     authorizationtoken = event["headers"].get("authorizationtoken", event["headers"].get("authorizationToken", False))
 
-    if authorizationtoken is not False:
+    if authorizationtoken is not False or "http://amplifyapp-20200115082834-hostingbucket-master.s3-website-eu-west-1.amazonaws.com" in event["origin"]:
         apisecret = getSecretFromSecretManager()
         if authorizationtoken == apisecret:
             authResponse = generatePolicy('Allow', event['methodArn'])
         else:
             authResponse = generatePolicy('Deny', event['methodArn'])
-        print(authResponse)
         return authResponse
     else:
-        print('Something went wrong')
         return {
             "statusCode": 422,
             "body": "Something went wrong"
