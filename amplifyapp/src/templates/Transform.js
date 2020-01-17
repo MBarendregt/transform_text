@@ -51,7 +51,7 @@ class Transform extends React.Component {
         let data = {
             "description": this.state.description
         };
-        postData('https://onuif9iroi.execute-api.eu-west-1.amazonaws.com/prod/transform', data)
+        postData('https://cors-anywhere.herokuapp.com/https://onuif9iroi.execute-api.eu-west-1.amazonaws.com/prod/transform', data)
             .then(data => {
                 this.setState(this.baseState)
                 this.setState({ additionalmessage: 'Converted the following message:' })
