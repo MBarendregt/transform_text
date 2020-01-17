@@ -18,3 +18,8 @@ Set in Headers:
 
 or go to 
 http://amplifyapp-20200115082834-hostingbucket-master.s3-website-eu-west-1.amazonaws.com/
+
+In the folder python_scripts you will find the python files that are used in the lambda functions.
+One is some custom authentication, the other is transforming the strings. 
+
+The other folder amplifyapp is just there to create the frond-end with some customization. 
